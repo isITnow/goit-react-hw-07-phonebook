@@ -6,6 +6,8 @@ import s from './ContactsList.module.css';
 export const ContactsList = () => {
     const { contacts, filter } = useSelector(state => state);
 
+    console.log(contacts);
+
     const filteredContacts = useMemo(() => {
         const normalizedContacts = filter.toLocaleLowerCase();
         return contacts.filter(({ name }) =>
