@@ -1,5 +1,5 @@
 // import { addContact, deleteContact } from '../actions/action.contacts';
-import { createReducer, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initContacts = [
     { id: 'id-1', name: 'Anakin Skywalker', number: '459-12-56' },
