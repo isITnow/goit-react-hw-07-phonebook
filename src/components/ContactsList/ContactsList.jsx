@@ -23,14 +23,6 @@ const ContactsList = () => {
         );
     }, [contacts, filter]);
 
-    if (!contacts.length) {
-        return <p>List is empty</p>;
-    }
-
-    if (!filteredContacts.length) {
-        return <p>User not found</p>;
-    }
-
     if (isLoading) {
         return (
             <FallingLines
@@ -40,6 +32,14 @@ const ContactsList = () => {
                 ariaLabel="falling-lines-loading"
             />
         );
+    }
+
+    if (!contacts.length) {
+        return <p>List is empty</p>;
+    }
+
+    if (!filteredContacts.length) {
+        return <p>User not found</p>;
     }
 
     return (
