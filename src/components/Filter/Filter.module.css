@@ -1,8 +1,20 @@
-.filter__input {
+.input {
     display: block;
     margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+}
+
+.input:hover,
+.input:focus {
+    box-shadow: 0px 0px 9px 0px rgba(63, 63, 63, 0.75);
+    transition: box-shadow, 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .label {
     margin-bottom: 10px;
+    margin-top: 10px;
 }

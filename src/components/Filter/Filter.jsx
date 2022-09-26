@@ -19,7 +19,7 @@ const Filter = () => {
             <label className={s.label}>
                 Find contacts by name
                 <input
-                    className={s.filter__input}
+                    className={s.input}
                     name="filter"
                     type="text"
                     value={filter}
