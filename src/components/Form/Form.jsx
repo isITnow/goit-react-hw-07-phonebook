@@ -7,6 +7,7 @@ import { addContactThunk } from 'redux/operations';
 
 const Form = () => {
     const contacts = useSelector(state => state.contacts.contacts);
+    const isLoading = useSelector(state => state.contacts.isLoading);
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -79,7 +80,11 @@ const Form = () => {
                         required
                     />
                 </label>
-                <button className={s.form__btn} type="submit">
+                <button
+                    className={s.form__btn}
+                    disabled={isLoading}
+                    type="submit"
+                >
                     Add contact
                 </button>
             </form>
