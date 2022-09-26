@@ -1,25 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { rootReducer } from './reducers/reducer';
-// import {
-//     persistStore,
-//     FLUSH,
-//     REHYDRATE,
-//     PAUSE,
-//     PERSIST,
-//     PURGE,
-//     REGISTER,
-// } from 'redux-persist';
-
-// import { persistReducer } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
-
-// const persistConfig = {
-//     key: 'phonebook',
-//     storage,
-//     whitelist: ['contacts'],
-// };
-
-// csrc/redux/store.jsonst persistedRootReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
     reducer: rootReducer,
@@ -38,5 +18,3 @@ export const store = configureStore({
     //         },
     //     }),
 });
-
-// export const persistor = persistStore(store);
