@@ -15,6 +15,11 @@
     cursor: pointer;
 }
 
+.form__btn:hover {
+    color: rgb(241, 241, 241);
+    background-color: rgb(66, 66, 66);
+}
+
 .form__input {
     display: block;
     margin: 0 auto;

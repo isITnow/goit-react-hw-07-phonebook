@@ -11,7 +11,8 @@ const getContacts = async () => {
 };
 
 const addContact = async data => {
-    await instance.post('', data);
+    const response = await instance.post('', data);
+    return response.data;
 };
 
 const deleteContact = async id => await instance.delete(`/${id}`);

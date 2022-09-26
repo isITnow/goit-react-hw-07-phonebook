@@ -1,5 +1,6 @@
 .contact__item {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 10px;
 }
@@ -11,4 +12,15 @@
     border: none;
     border-radius: 2px;
     cursor: pointer;
+}
+
+.btn:hover {
+    color: rgb(241, 241, 241);
+    background-color: rgb(66, 66, 66);
+}
+
+
+.phone {
+    margin-left: auto;
+    margin-right: 20px;
 }

@@ -1,33 +1,56 @@
-import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useMemo } from 'react';
 import { ContactsItem } from '././ContactsItem';
+import { fetchContactsThunk } from 'redux/operations';
+import { FallingLines } from 'react-loader-spinner';
 import s from './ContactsList.module.css';
 
 export const ContactsList = () => {
-    const { contacts, filter } = useSelector(state => state);
+    const isLoading = useSelector(state => state.contacts.isLoading);
+    const dispatch = useDispatch();
 
-    console.log(contacts);
+    useEffect(() => {
+        dispatch(fetchContactsThunk());
+    }, [dispatch]);
+
+    const { contacts } = useSelector(state => state.contacts);
+    const { filter } = useSelector(state => state);
 
     const filteredContacts = useMemo(() => {
-        const normalizedContacts = filter.toLocaleLowerCase();
+        const normalizedContacts = filter.toLowerCase();
         return contacts.filter(({ name }) =>
-            name.toLocaleLowerCase().includes(normalizedContacts)
+            name.toLowerCase().includes(normalizedContacts)
         );
     }, [contacts, filter]);
+
+    if (!contacts.length) {
+        return <p>List is empty</p>;
+    }
 
     if (!filteredContacts.length) {
         return <p>User not found</p>;
     }
 
+    if (isLoading) {
+        return (
+            <FallingLines
+                color="#424242"
+                width="100"
+                visible={true}
+                ariaLabel="falling-lines-loading"
+            />
+        );
+    }
+
     return (
         <div>
             <ul className={s.contacts__list}>
-                {filteredContacts.map(({ name, number, id }) => {
+                {filteredContacts.map(({ name, phone, id }) => {
                     return (
                         <ContactsItem
                             key={id}
                             name={name}
-                            number={number}
+                            phone={phone}
                             id={id}
                         />
                     );
