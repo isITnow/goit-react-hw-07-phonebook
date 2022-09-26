@@ -5,7 +5,7 @@ import s from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addContactThunk } from 'redux/operations';
 
-export const Form = () => {
+const Form = () => {
     const contacts = useSelector(state => state.contacts.contacts);
     const dispatch = useDispatch();
     const [name, setName] = useState('');
@@ -86,3 +86,5 @@ export const Form = () => {
         </div>
     );
 };
+
+export default Form;

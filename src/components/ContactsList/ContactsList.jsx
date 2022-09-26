@@ -5,7 +5,7 @@ import { fetchContactsThunk } from 'redux/operations';
 import { FallingLines } from 'react-loader-spinner';
 import s from './ContactsList.module.css';
 
-export const ContactsList = () => {
+const ContactsList = () => {
     const isLoading = useSelector(state => state.contacts.isLoading);
     const dispatch = useDispatch();
 
@@ -59,3 +59,5 @@ export const ContactsList = () => {
         </div>
     );
 };
+
+export default ContactsList;

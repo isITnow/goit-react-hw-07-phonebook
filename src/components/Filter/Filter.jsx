@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import s from './Filter.module.css';
 import { filterChange } from 'redux/reducers/filter-slice';
 
-export const Filter = () => {
+const Filter = () => {
     const [filter, setFilter] = useState('');
 
     const dispatch = useDispatch();
@@ -29,3 +29,5 @@ export const Filter = () => {
         </div>
     );
 };
+
+export default Filter;
