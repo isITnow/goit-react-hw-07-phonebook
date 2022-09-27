@@ -4,17 +4,18 @@ import { ContactsItem } from '././ContactsItem';
 import { fetchContactsThunk } from 'redux/operations';
 import { FallingLines } from 'react-loader-spinner';
 import s from './ContactsList.module.css';
+import { selectContacts, selectFilter, selectIsLoading } from 'redux/selector';
 
 const ContactsList = () => {
-    const isLoading = useSelector(state => state.contacts.isLoading);
+    const isLoading = useSelector(selectIsLoading);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchContactsThunk());
     }, [dispatch]);
 
-    const { contacts } = useSelector(state => state.contacts);
-    const { filter } = useSelector(state => state);
+    const contacts = useSelector(selectContacts);
+    const filter = useSelector(selectFilter);
 
     const filteredContacts = useMemo(() => {
         const normalizedContacts = filter.toLowerCase();

@@ -8,7 +8,7 @@ export const ContactsItem = ({ name, phone, id }) => {
 
     return (
         <li className={s.contact__item}>
-            <span>{name}:</span>
+            <span>{name}</span>
             <span className={s.phone}>{phone}</span>
             <button
                 className={s.btn}
