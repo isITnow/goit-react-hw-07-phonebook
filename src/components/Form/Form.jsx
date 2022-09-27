@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import s from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
@@ -41,7 +40,7 @@ const Form = () => {
             });
             return;
         }
-        const profile = { id: nanoid(3), name, phone };
+        const profile = { name, phone };
         dispatch(addContactThunk(profile));
         formReset();
     };
